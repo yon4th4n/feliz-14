@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Ti Selena❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    background:url("one.jpg") center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow:hidden;
+}
+
+/* SOBRE */
+
+.sobre{
+    width:320px;
+    height:200px;
+    background:#ff4d6d;
+    position:relative;
+    cursor:pointer;
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+    transition:1s;
+}
+
+.sobre:before{
+    content:'';
+    position:absolute;
+    width:0;
+    height:0;
+    border-left:160px solid transparent;
+    border-right:160px solid transparent;
+    border-bottom:100px solid #ff758f;
+    top:-100px;
+    left:0;
+    transition:1s;
+}
+
+/* CARTA */
+
+.carta{
+    position:absolute;
+    width:300px;
+    height:380px;
+    background:url("nami.jpg") center/cover no-repeat;
+    color:#333;
+    border-radius:15px;
+    top:-20px;
+    left:10px;
+    padding:20px;
+    text-align:center;
+    transform:translateY(120px);
+    opacity:0;
+    transition:1s;
+}
+
+.abierto .carta{
+    transform:translateY(-180px);
+    opacity:1;
+}
+
+.abierto:before{
+    transform:rotateX(180deg);
+}
+
+/* corazones */
+
+.corazon{
+    position:absolute;
+    color:#ff6b81;
+    animation:flotar 6s linear infinite;
+}
+
+@keyframes flotar{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+
+h1{
+    color:#ff4d6d;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sobre" onclick="abrirCarta()" id="sobre">
+    <div class="carta">
+        <h1>Feliz 14 ❤️</h1>
+
+        <h2>Selena❤️</h2>
+
+        <p>
+        Hoy solo quiero recordarte lo especial que eres.  
+        Gracias por existir y estar aqui.
+        </p>
+
+        <p>
+        Ojalá este sea solo uno de muchos 😎
+        </p>
+
+    </div>
+</div>
+
+<audio id="ost" src="ost.mp3"></audio>
+
+<script>
+
+function abrirCarta(){
+
+    document.getElementById("sobre").classList.add("abierto");
+
+    document.getElementById("musica").play().catch(()=>{});
+
+    // corazones elegantes
+    setInterval(()=>{
+
+        const heart = document.createElement("div");
+        heart.className="corazon";
+        heart.innerHTML="❤️";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.fontSize=(Math.random()*20+15)+"px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>heart.remove(),6000);
+
+    },500);
+}
+
+</script>
+
+</body>
+</html>
