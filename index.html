@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para Ti Selena❤️</title>
 
 <style>
@@ -9,7 +10,7 @@
 body{
     margin:0;
     height:100vh;
-    background:url("one.jpg") center/cover no-repeat;
+    background:url("on.png") center/cover no-repeat;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -20,9 +21,9 @@ body{
 /* SOBRE */
 
 .sobre{
-    width:320px;
-    height:200px;
-    background:#ff4d6d;
+    width:min(88vw, 360px);
+    aspect-ratio: 16 / 10;
+    background:#310c13;
     position:relative;
     cursor:pointer;
     border-radius:10px;
@@ -35,30 +36,32 @@ body{
     position:absolute;
     width:0;
     height:0;
-    border-left:160px solid transparent;
-    border-right:160px solid transparent;
-    border-bottom:100px solid #ff758f;
-    top:-100px;
+    border-left:calc(min(88vw, 360px) / 2) solid transparent;
+    border-right:calc(min(88vw, 360px) / 2) solid transparent;
+    border-bottom:calc(min(88vw, 360px) * 0.31) solid #310c13;
+    top:calc(min(88vw, 360px) * -0.31);
     left:0;
     transition:1s;
-}
+}  
+
 
 /* CARTA */
 
 .carta{
     position:absolute;
-    width:300px;
-    height:380px;
+    width:calc(min(88vw, 360px) - 24px);
+    height:clamp(360px, 62vh, 470px);
     background:url("nami.jpg") center/cover no-repeat;
-    color:#333;
+    color:#000000;
     border-radius:15px;
-    top:-20px;
-    left:10px;
-    padding:20px;
+    top:-12px;
+    left:12px;
+    padding:clamp(16px, 3vw, 22px);
     text-align:center;
     transform:translateY(120px);
     opacity:0;
     transition:1s;
+    box-sizing:border-box;
 }
 
 .abierto .carta{
@@ -90,9 +93,24 @@ body{
 }
 
 h1{
-    color:#ff4d6d;
+    color:#000000;
+    font-size:clamp(1.8rem, 5vw, 2.3rem);
 }
 
+h2{
+    font-size:clamp(1.35rem, 4.5vw, 1.7rem);
+}
+
+p{
+    font-size:clamp(1rem, 3.8vw, 1.15rem);
+    line-height:1.35;
+}
+
+@media (max-width: 430px){
+    .abierto .carta{
+        transform:translateY(-165px);
+    }
+}
 </style>
 </head>
 
@@ -100,18 +118,20 @@ h1{
 
 <div class="sobre" onclick="abrirCarta()" id="sobre">
     <div class="carta">
-        <h1>Feliz 14 ❤️</h1>
+        <h1>Feliz 14 🌸</h1>
 
-        <h2>Selena❤️</h2>
+        <h2>Selena✨</h2>
 
         <p>
-        Hoy solo quiero recordarte lo especial que eres.  
-        Gracias por existir y estar aqui.
+        Holaa bogabuuuu, nomas se me dio por hacer esto para recordarte lo especial que es usted,
+            Gracias por existir y estar aqui no sabes como lo aprecio demasiado y nada jaja
+            nose que decir para estas fechas y pues se me vino a la mente hacer algo como esto.
         </p>
 
         <p>
-        Ojalá este sea solo uno de muchos 😎
-        </p>
+        Ojalá espero te guste tanto como me gusto hacerlo con esta tematica y musiquita, y seguir lokeando jajaj por un buen tiempo, mientras Dios lo permita 😎
+       atentamente: ya tu sabe xD, quien mas ^-^
+    </p>
 
     </div>
 </div>
@@ -132,9 +152,9 @@ function abrirCarta(){
 
         const heart = document.createElement("div");
         heart.className="corazon";
-        heart.innerHTML="❤️";
+        heart.innerHTML="🐾";
         heart.style.left=Math.random()*100+"vw";
-        heart.style.fontSize=(Math.random()*20+15)+"px";
+        heart.style.fontSize=(Math.random()*45+45)+"px";
 
         document.body.appendChild(heart);
 
@@ -147,6 +167,3 @@ function abrirCarta(){
 
 </body>
 </html>
-
-
-
